@@ -1,7 +1,12 @@
+import re
 import streamlit as st
 
+def extract_words(text):
+    words = re.findall(r"[A-Za-z]+(?:['’][A-Za-z]+)?", text)
+    return words
+
 def analyze_text(text):
-    words = text.split()
+    words = extract_words(text)
     word_count = len(words)
     characters = len(text)
 
